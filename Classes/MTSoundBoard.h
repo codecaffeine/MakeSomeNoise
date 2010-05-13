@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@class CCOpenAL;
 
 @interface MTSoundBoard : UIView {
-
+	CCOpenAL *openALSoundPlayer;
 }
 
 @end
