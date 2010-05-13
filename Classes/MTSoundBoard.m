@@ -7,6 +7,7 @@
 //
 
 #import "MTSoundBoard.h"
+#import "CCAudioServices.h"
 
 
 @implementation MTSoundBoard
@@ -35,19 +36,14 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSURL *afUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tink" ofType:@"caf"]];
-	UInt32 soundID;
-	AudioServicesCreateSystemSoundID((CFURLRef)afUrl, &soundID);
-	AudioServicesPlaySystemSound(soundID);
-	
-	srand(time(NULL));
+	[CCAudioServices playSound];
+	srand([[NSDate date] timeIntervalSince1970]);
 	CGFloat red = (CGFloat)(rand() % 101)/100.0f;
 	CGFloat green = (CGFloat)(rand() % 101)/100.0f;
 	CGFloat blue = (CGFloat)(rand() % 101)/100.0f;
 	CATransition *transition = [CATransition animation];
 	transition.type = kCATransitionFade;
 	self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
-	NSLog(@"background-color: %@", self.backgroundColor);
 }
 
 @end
