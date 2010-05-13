@@ -35,15 +35,18 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	NSURL *afUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tink" ofType:@"caf"]];
+	UInt32 soundID;
+	AudioServicesCreateSystemSoundID((CFURLRef)afUrl, &soundID);
+	AudioServicesPlaySystemSound(soundID);
+	
 	srand(time(NULL));
 	CGFloat red = (CGFloat)(rand() % 101)/100.0f;
 	CGFloat green = (CGFloat)(rand() % 101)/100.0f;
 	CGFloat blue = (CGFloat)(rand() % 101)/100.0f;
 	CATransition *transition = [CATransition animation];
 	transition.type = kCATransitionFade;
-	[UIView beginAnimations:@"lalala" context:nil];
 	self.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
-	[UIView commitAnimations];
 	NSLog(@"background-color: %@", self.backgroundColor);
 }
 
