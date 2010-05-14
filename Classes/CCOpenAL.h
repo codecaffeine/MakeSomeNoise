@@ -5,6 +5,7 @@
 //  Created by Matthew Thomas on 5/12/10.
 //  Copyright 2010 Unbound Medicine. All rights reserved.
 //
+// This code is based on http://benbritten.com/2008/11/06/openal-sound-on-the-iphone/
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
