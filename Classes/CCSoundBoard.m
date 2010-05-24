@@ -3,7 +3,7 @@
 //  MakeSomeNoise
 //
 //  Created by Matthew Thomas on 5/8/10.
-//  Copyright 2010 Unbound Medicine. All rights reserved.
+//  Copyright 2010 Matthew Thomas. All rights reserved.
 //
 
 #import "CCSoundBoard.h"

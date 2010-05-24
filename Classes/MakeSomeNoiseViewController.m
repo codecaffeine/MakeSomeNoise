@@ -3,7 +3,7 @@
 //  MakeSomeNoise
 //
 //  Created by Matthew Thomas on 5/4/10.
-//  Copyright Unbound Medicine 2010. All rights reserved.
+//  Copyright Matthew Thomas 2010. All rights reserved.
 //
 
 #import "MakeSomeNoiseViewController.h"
