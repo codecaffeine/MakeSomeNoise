@@ -6,17 +6,19 @@
 //  Copyright 2010 Unbound Medicine. All rights reserved.
 //
 
-#import "MTSoundBoard.h"
+#import "CCSoundBoard.h"
 #import "CCAudioServices.h"
 #import "CCOpenAL.h"
+#import "CCRemoteIO.h"
 
 
-@implementation MTSoundBoard
+@implementation CCSoundBoard
 
 
 - (id)initWithCoder:(NSCoder *)decoder {
 	if ((self = [super initWithCoder:decoder])) {
 		openALSoundPlayer = [[CCOpenAL alloc] init];
+		remoteIOSoundPlayer = [[CCRemoteIO alloc] init];
 	}
 	return self;
 }
@@ -26,6 +28,7 @@
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		openALSoundPlayer = [[CCOpenAL alloc] init];
+		remoteIOSoundPlayer = [[CCRemoteIO alloc] init];
     }
     return self;
 }
@@ -33,6 +36,7 @@
 
 - (void)dealloc {
 	[openALSoundPlayer release];
+	[remoteIOSoundPlayer release];
     [super dealloc];
 }
 
@@ -46,12 +50,14 @@
  */
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	[openALSoundPlayer playSound];
+//	[openALSoundPlayer playSound];
+	[remoteIOSoundPlayer playSound];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 //	[CCAudioServices playSound];
-	[openALSoundPlayer stopSound];
+//	[openALSoundPlayer stopSound];
+	[remoteIOSoundPlayer stopSound];
 	
 	srand([[NSDate date] timeIntervalSince1970]);
 	CGFloat red = (CGFloat)(rand() % 101)/100.0f;

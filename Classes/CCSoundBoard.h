@@ -10,9 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 
 @class CCOpenAL;
+@class CCRemoteIO;
 
-@interface MTSoundBoard : UIView {
+@interface CCSoundBoard : UIView {
 	CCOpenAL *openALSoundPlayer;
+	CCRemoteIO *remoteIOSoundPlayer;
 }
 
 @end
