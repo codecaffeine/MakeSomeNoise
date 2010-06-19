@@ -64,13 +64,13 @@ static OSStatus playbackCallback(void *inRefCon,
 
 - (void)playSound {
 	OSStatus status = AudioOutputUnitStart(myAudioUnit);
-	NSLog(@"playSound status: %d", status);
+	NSLog(@"playSound status: %d", (signed int)status);
 }
 
 
 - (void)stopSound {
 	OSStatus status = AudioOutputUnitStop(myAudioUnit);
-	NSLog(@"stopSound status: %d", status);
+	NSLog(@"stopSound status: %d", (signed int)status);
 }
 
 - (void)initializeAudio {
