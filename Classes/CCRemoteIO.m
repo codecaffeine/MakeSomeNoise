@@ -22,7 +22,7 @@ static OSStatus playbackCallback(void *inRefCon,
 								 UInt32 inNumberFrames,
 								 AudioBufferList *ioData) {
 	
-	double frequency = 880.;
+	double frequency = 440.;
 	sSinWaveFrameCount += inNumberFrames;
 	double j = sSinWaveFrameCount;
 	double cycleLength = 44100. / frequency;
@@ -30,7 +30,8 @@ static OSStatus playbackCallback(void *inRefCon,
 	SInt16 *toneBuffer = (SInt16 *)ioData->mBuffers[0].mData;
 	
 	for (UInt32 currentFrame = 0; currentFrame < inNumberFrames; ++currentFrame) {
-		double nextFloat = sin(j / cycleLength * (M_PI * 2.));
+        double x = j / cycleLength * (M_PI * 2.);
+		double nextFloat = sin(x);
 		toneBuffer[currentFrame] = 32767. * nextFloat;
 		
 		j += 1.0f;
